@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Job from "./Job";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
+  const dispatch = useDispatch();
 
   const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
 
@@ -21,6 +23,10 @@ const MainSearch = () => {
       if (response.ok) {
         const { data } = await response.json();
         setJobs(data);
+        dispatch({
+          type: "SAVE_DATA",
+          payload: data,
+        });
       } else {
         alert("Error fetching results");
       }

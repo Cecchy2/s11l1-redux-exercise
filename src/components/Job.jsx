@@ -7,6 +7,8 @@ const Job = ({ data }) => {
   const favoriteCompanies = useSelector((state) => state.favoriteCompanies);
   const favorite = favoriteCompanies.includes(data.company_name);
 
+  console.log(data);
+
   return (
     <Row className="mx-0 mt-3 p-3" style={{ border: "1px solid #00000033", borderRadius: 4 }}>
       <Col xs={3}>
