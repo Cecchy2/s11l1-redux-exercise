@@ -8,9 +8,8 @@ const mainReducer = (state = initialState, action) => {
     case "FAVORITE_COMPANIES":
       return {
         ...state,
-        favoriteCompanies: state.favoriteCompanies.includes(action.payload)
-          ? state.favoriteCompanies.filter((company) => company !== action.payload)
-          : [...state.favoriteCompanies, action.payload],
+        ...state.favourite,
+        favoriteCompanies: [...state.favoriteCompanies, action.payload],
       };
     case "SAVE_DATA":
       return {
