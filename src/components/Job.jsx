@@ -32,8 +32,6 @@ const Job = ({ data }) => {
         <Link to={`/${data.company_name}`}>{data.company_name}</Link>
       </Col>
       <Col xs={9}>
-        {" "}
-        prova
         <a href={data.url} target="_blank" rel="noreferrer">
           {data.title}
         </a>
